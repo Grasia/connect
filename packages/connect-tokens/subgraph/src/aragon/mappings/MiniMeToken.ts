@@ -25,6 +25,7 @@ export function handleTransfer(event: TransferEvent): void {
     sendingHolder.save()
   } else {
     miniMeTokenEntity.totalSupply = miniMeTokenEntity.totalSupply.plus(transferedAmount)
+    miniMeTokenEntity.lastUpdateAt = event.block.timestamp
     miniMeTokenEntity.save()
   }
 
@@ -36,6 +37,7 @@ export function handleTransfer(event: TransferEvent): void {
     receivingHolder.save()
   } else {
     miniMeTokenEntity.totalSupply = miniMeTokenEntity.totalSupply.minus(transferedAmount)
+    miniMeTokenEntity.lastUpdateAt = event.block.timestamp
     miniMeTokenEntity.save()
   }
 }
@@ -58,7 +60,10 @@ function _getMiniMeTokenEntity(previousBlock: BigInt, tokenAddress: Address): Mi
     miniMeTokenEntity.name = tokenContract.name()
     miniMeTokenEntity.address = tokenAddress
     miniMeTokenEntity.symbol = tokenContract.symbol()
+
     miniMeTokenEntity.totalSupply = _getTotalSupplyAt(tokenContract, previousBlock)
+    miniMeTokenEntity.lastUpdateAt = BigInt.fromI32(0)
+
     miniMeTokenEntity.transferable = tokenContract.transfersEnabled()
     miniMeTokenEntity.holders = new Array<string>()
 
