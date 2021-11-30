@@ -24,6 +24,7 @@ type TokenHolder @entity {
   address: Bytes!
   tokenAddress: Bytes!
   balance: BigInt!
+  lastUpdateAt: BigInt!
 }
 
 type OrphanTokenManagers @entity {
