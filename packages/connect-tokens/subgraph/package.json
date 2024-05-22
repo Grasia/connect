@@ -1,6 +1,6 @@
 {
-  "name": "@aragon/subgraph-token-manager",
-  "version": "0.1.0",
+  "name": "@daviddavo/subgraph-token-manager",
+  "version": "0.1.1",
   "scripts": {
     "codegen": "rm -rf generated; graph codegen",
     "build": "rm -rf build; graph build",
@@ -8,16 +8,16 @@
     "manifest-mainnet-staging": "env STAGING=true scripts/build-manifest.sh mainnet",
     "manifest-rinkeby": "scripts/build-manifest.sh rinkeby",
     "manifest-rinkeby-staging": "env STAGING=true scripts/build-manifest.sh rinkeby",
-    "manifest-xdai": "scripts/build-manifest.sh xdai",
+    "manifest-gnosis": "scripts/build-manifest.sh gnosis",
     "deploy-mainnet": "scripts/deploy.sh grasia tokens mainnet",
     "deploy-mainnet-staging": "env STAGING=true scripts/deploy.sh grasia tokens mainnet",
     "deploy-rinkeby": "scripts/deploy.sh grasia tokens rinkeby",
     "deploy-rinkeby-staging": "env STAGING=true scripts/deploy.sh grasia tokens rinkeby",
-    "deploy-xdai": "scripts/deploy.sh grasia tokens xdai"
+    "deploy-gnosis": "scripts/deploy.sh grasia tokens gnosis"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.19.0",
-    "@graphprotocol/graph-ts": "^0.19.0",
+    "@graphprotocol/graph-cli": "^0.71.0",
+    "@graphprotocol/graph-ts": "^0.35.0",
     "mustache": "^4.0.1"
   },
   "dependencies": {
