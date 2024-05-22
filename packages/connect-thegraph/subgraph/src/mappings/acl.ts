@@ -24,7 +24,7 @@ export function handleSetPermission(event: SetPermissionEvent): void {
   const acl = AclContract.bind(event.address)
   const orgAddress = acl.kernel()
   const orgId = orgAddress.toHex()
-  const org = OrganizationEntity.load(orgId)
+  const org = OrganizationEntity.load(orgId)!
 
   const appAddress = event.params.app
   const roleHash = event.params.role
